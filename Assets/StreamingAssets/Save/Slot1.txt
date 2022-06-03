@@ -1,0 +1,4 @@
+Save Time|3/06/2022 5:42:52 PM
+Player Name|Bob the Player
+Player Position|(11.6, 7.2, -1.5)
+Player Rotation|(0.0, 0.0, 0.0, 1.0)

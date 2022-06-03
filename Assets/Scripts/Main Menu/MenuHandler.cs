@@ -12,6 +12,7 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
+
     public void OnApplicationQuit()
     {
 #if UNITY_EDITOR
@@ -19,6 +20,7 @@ public class MenuHandler : MonoBehaviour
 #endif
         Application.Quit();
     }
+
     
     #region Audio
     public AudioMixer masterAudio;
