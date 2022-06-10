@@ -30,7 +30,7 @@ public class SaveData : MonoBehaviour
 //health
         writer.WriteLine("Player Position|" + player.position.ToString());
         writer.WriteLine("Player Rotation|" + player.rotation.ToString());
-
+        Debug.Log(player.position.ToString());
 
         //writng is done
         writer.Close();//closes the current Streamwriter object and the underlying stream
@@ -40,7 +40,7 @@ public class SaveData : MonoBehaviour
         //TextAsset asset = Resources.Load("Save/Keybinds.txt") as TextAsset;
     }
 
-    public static void ReadSaveFile(string path, Transform player)
+    public static void ReadSaveFile(string path, PlayerData player)
     {
         //Read text from file
         StreamReader reader = new StreamReader(path);
@@ -73,7 +73,9 @@ public class SaveData : MonoBehaviour
         {
             data.Add(float.Parse(storeData[i]));
         }        
-        player.position = new Vector3(data[0], data[1], data[2]);
+        player.playerData.position = new Vector3(data[0], data[1], data[2]);
+        Debug.Log(player.playerData.position.ToString());
+        Debug.Log(new Vector3(data[0], data[1], data[2]).ToString());
         #endregion
         #region Splitting and l=Loading rotation quaternion 
         data.Clear();
@@ -82,7 +84,7 @@ public class SaveData : MonoBehaviour
         {
             data.Add(float.Parse(storeData[i]));
         }
-        player.rotation = new Quaternion(data[0],data[1], data[2],data[3]);
+        player.playerData.rotation = new Quaternion(data[0],data[1], data[2],data[3]);
         #endregion
         reader.Close();
 

@@ -7,12 +7,20 @@ using UnityEngine.Audio;
 
 public class MenuHandler : MonoBehaviour
 {
+    public PlayerData playerData;
     public void ChangeScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
     }
 
-
+    public void LoadSlotOne()
+    {
+        SaveData.ReadSaveFile(SaveData.path1, playerData);
+    }
+    public void LoadSlotTwo()
+    {
+        SaveData.ReadSaveFile(SaveData.path2, playerData);
+    }
     public void OnApplicationQuit()
     {
 #if UNITY_EDITOR

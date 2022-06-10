@@ -2,3 +2,35 @@ Save Time|3/06/2022 5:42:52 PM
 Player Name|Bob the Player
 Player Position|(11.6, 7.2, -1.5)
 Player Rotation|(0.0, 0.0, 0.0, 1.0)
+Save Time|10/06/2022 1:08:55 PM
+Player Name|Bob the Player(Clone)
+Player Position|(12.7, 7.3, -0.8)
+Player Rotation|(-0.2, -0.2, -0.3, 0.9)
+Save Time|10/06/2022 1:08:57 PM
+Player Name|Bob the Player(Clone)
+Player Position|(12.7, 7.3, -0.8)
+Player Rotation|(-0.2, -0.2, -0.3, 0.9)
+Save Time|10/06/2022 1:08:57 PM
+Player Name|Bob the Player(Clone)
+Player Position|(12.7, 7.3, -0.8)
+Player Rotation|(-0.2, -0.2, -0.3, 0.9)
+Save Time|10/06/2022 1:08:58 PM
+Player Name|Bob the Player(Clone)
+Player Position|(12.7, 7.3, -0.8)
+Player Rotation|(-0.2, -0.2, -0.3, 0.9)
+Save Time|10/06/2022 1:08:58 PM
+Player Name|Bob the Player(Clone)
+Player Position|(12.7, 7.3, -0.8)
+Player Rotation|(-0.2, -0.2, -0.3, 0.9)
+Save Time|10/06/2022 1:09:53 PM
+Player Name|Bob the Player(Clone)
+Player Position|(11.6, 7.2, -1.5)
+Player Rotation|(0.0, 0.0, 0.0, 1.0)
+Save Time|10/06/2022 1:13:32 PM
+Player Name|Bob the Player(Clone)
+Player Position|(11.6, 7.2, -1.5)
+Player Rotation|(0.0, 0.0, 0.0, 1.0)
+Save Time|10/06/2022 1:13:41 PM
+Player Name|Bob the Player(Clone)
+Player Position|(11.6, 5.2, -1.5)
+Player Rotation|(0.0, 0.0, 0.0, 1.0)
