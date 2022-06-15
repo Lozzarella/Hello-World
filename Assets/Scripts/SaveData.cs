@@ -21,8 +21,7 @@ public class SaveData : MonoBehaviour
     {
         //true means you can add to the file
         //false means you override what was in the file
-        StreamWriter writer = new StreamWriter(path, true);
-
+        StreamWriter writer = new StreamWriter(path, false);
 
         //Each Key name and Key Value will be written in with a : to seperate them
         writer.WriteLine("Save Time|" + DateTime.Now.ToString());
@@ -40,7 +39,7 @@ public class SaveData : MonoBehaviour
         //TextAsset asset = Resources.Load("Save/Keybinds.txt") as TextAsset;
     }
 
-    public static void ReadSaveFile(string path, PlayerData player)
+    public static void ReadSaveFile(string path, ref Transform playerTrans)
     {
         //Read text from file
         StreamReader reader = new StreamReader(path);
@@ -49,6 +48,8 @@ public class SaveData : MonoBehaviour
         //using lists to add 
         List<string> saveInfo = new List<string>();
         List<float> data = new List<float>();
+
+        PlayerData player = new PlayerData();
 
         while ((line = reader.ReadLine()) != null)
         {
@@ -88,6 +89,6 @@ public class SaveData : MonoBehaviour
         #endregion
         reader.Close();
 
-
+        player.LoadToTransform(ref playerTrans);
     }
 }

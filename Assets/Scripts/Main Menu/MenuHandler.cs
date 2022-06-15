@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class MenuHandler : MonoBehaviour
 {
-    public PlayerData playerData;
+    public Transform playerTrans;
     public void ChangeScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
@@ -15,11 +15,11 @@ public class MenuHandler : MonoBehaviour
 
     public void LoadSlotOne()
     {
-        SaveData.ReadSaveFile(SaveData.path1, playerData);
+        StartBobsWorld.loadPath = SaveData.path1;
     }
     public void LoadSlotTwo()
     {
-        SaveData.ReadSaveFile(SaveData.path2, playerData);
+        StartBobsWorld.loadPath = SaveData.path2;
     }
     public void OnApplicationQuit()
     {
