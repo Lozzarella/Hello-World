@@ -1,4 +1,4 @@
-Save Time|15/06/2022 4:20:51 PM
+Save Time|16/06/2022 4:29:58 PM
 Player Name|Bob the PlayerClone
-Player Position|(-179.2, 7.2, -1.5)
-Player Rotation|(0.0, 0.0, 0.0, 1.0)
+Player Position|(0.7, 0.3, 0.0)
+Player Rotation|(0.0, 0.0, 1.0, 0.0)

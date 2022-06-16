@@ -8,7 +8,7 @@ using System.IO; //access to characters from a byte streamSystem.DateTime.Now
 
 [System.Serializable]
 
-public class SaveData : MonoBehaviour
+public class SavePlayerData : MonoBehaviour
 {
     #region Variables
 
@@ -17,6 +17,7 @@ public class SaveData : MonoBehaviour
     public static string path3 = "Assets/StreamingAssets/Save/Slot3.txt";//This is the file path for save slot 3
     #endregion
 
+    #region WriteSaveFile
     public static void WriteSaveFile(string path, Transform player)
     {
         //true means you can add to the file
@@ -26,7 +27,7 @@ public class SaveData : MonoBehaviour
         //Each Key name and Key Value will be written in with a : to seperate them
         writer.WriteLine("Save Time|" + DateTime.Now.ToString());
         writer.WriteLine("Player Name|" + player.name);
-//health
+        //health
         writer.WriteLine("Player Position|" + player.position.ToString());
         writer.WriteLine("Player Rotation|" + player.rotation.ToString());
         Debug.Log(player.position.ToString());
@@ -39,6 +40,9 @@ public class SaveData : MonoBehaviour
         //TextAsset asset = Resources.Load("Save/Keybinds.txt") as TextAsset;
     }
 
+    #endregion
+
+    #region ReadSaveFile
     public static void ReadSaveFile(string path, ref Transform playerTrans)
     {
         //Read text from file
@@ -61,34 +65,39 @@ public class SaveData : MonoBehaviour
                 //we need to remove ( and )
                 lines[1] = lines[1].Replace("(", "");
                 lines[1] = lines[1].Replace(")", "");
-            }          
+            }
             //now all edits are done add our line of data to the list of save data
             saveInfo.Add(lines[1]);
         }
 
         //load player name straight from our string list
         player.name = saveInfo[1];
+
+        #endregion
+
         #region Splitting and Loading position vector3
         string[] storeData = saveInfo[2].Split(',');
         for (int i = 0; i < storeData.Length; i++)
         {
             data.Add(float.Parse(storeData[i]));
-        }        
+        }
         player.playerData.position = new Vector3(data[0], data[1], data[2]);
         Debug.Log(player.playerData.position.ToString());
         Debug.Log(new Vector3(data[0], data[1], data[2]).ToString());
         #endregion
-        #region Splitting and l=Loading rotation quaternion 
+
+        #region Splitting and Loading rotation quaternion 
         data.Clear();
         storeData = saveInfo[3].Split(',');
         for (int i = 0; i < storeData.Length; i++)
         {
             data.Add(float.Parse(storeData[i]));
         }
-        player.playerData.rotation = new Quaternion(data[0],data[1], data[2],data[3]);
-        #endregion
+        player.playerData.rotation = new Quaternion(data[0], data[1], data[2], data[3]);
+
         reader.Close();
 
         player.LoadToTransform(ref playerTrans);
     }
+    #endregion
 }

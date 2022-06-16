@@ -5,21 +5,30 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class MenuHandler : MonoBehaviour
+public class MenuHandler : MonoBehaviour//Class to manage main menu canvas system
 {
     public Transform playerTrans;
+
+    #region Main Menu System
     public void ChangeScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
-    }
+    }//function to change between scenes
 
-    public void LoadSlotOne()
+    public void LoadContinue()
     {
-        StartBobsWorld.loadPath = SaveData.path1;
+        SaveLoadHandler.loadPath = PlayerPrefs.GetString("loadPath", SavePlayerData.path1);
+    }//function to load what game was last saved and played
+
+    public void LoadSlotOne()//function to load the game saved in save slot one
+    {
+        SaveLoadHandler.loadPath = SavePlayerData.path1;
+        PlayerPrefs.SetString("loadPath", SavePlayerData.path1);
     }
-    public void LoadSlotTwo()
+    public void LoadSlotTwo()//function to load the game saved in save slot two
     {
-        StartBobsWorld.loadPath = SaveData.path2;
+        SaveLoadHandler.loadPath = SavePlayerData.path2;
+        PlayerPrefs.SetString("loadPath", SavePlayerData.path2);
     }
     public void OnApplicationQuit()
     {
@@ -27,9 +36,10 @@ public class MenuHandler : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
-    }
+    }//to quit the game
 
-    
+    #endregion
+
     #region Audio
     public AudioMixer masterAudio;
     public string currentSlider;
