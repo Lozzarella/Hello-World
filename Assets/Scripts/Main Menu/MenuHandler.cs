@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class MenuHandler : MonoBehaviour//Class to manage main menu canvas system
 {
-    public Transform playerTrans;
+    public Transform PlayerTrans;
 
 
 
@@ -95,6 +95,7 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
  
     void LoadSettings()
     {
+
         float theSavedSetting;
         theSavedSetting = PlayerPrefs.GetFloat("masterVolume", 80f);
         masterAudio.SetFloat("masterVolume", theSavedSetting);
