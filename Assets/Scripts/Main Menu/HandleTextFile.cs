@@ -14,13 +14,13 @@ public class HandleTextFile
     static string path2 = "Assets/StreamingAssets/Save/Keybinds.txt";
     // static string path = Path.Combine(Application.streamingAssetsPath + "Save/Keybinds.txt");
     //Unity Editor allows me to create a tool in my Menus
-    [MenuItem("Tool/Save/Write File/Keybinds")]//we can attach to unity toolbar
+  //  [MenuItem("Tool/Save/Write File/Keybinds")]//we can attach to unity toolbar
     //This is public static behaviour that we can call in our scripts
     public static void WriteSaveFile()
     {
         //true means you can add to the file
         //false means you override what was in the file
-        StreamWriter writer = new StreamWriter(path2, true);
+        StreamWriter writer = new StreamWriter(path2, false);
 
         //write each of our keys in the file
         foreach (var key in KeyBinds.keys)//for each value/string/entry in our dictionary
@@ -33,11 +33,11 @@ public class HandleTextFile
         writer.Close();//closes the current Streamwriter object and the underlying stream
 
         //Re-import the file to update the reference in the editor
-        AssetDatabase.ImportAsset(path2);
+       // AssetDatabase.ImportAsset(path2);
         //TextAsset asset = Resources.Load("Save/Keybinds.txt") as TextAsset;
     }
 
-    [MenuItem("Tool/Save/Read File/Keybinds")]
+   // [MenuItem("Tool/Save/Read File/Keybinds")]
     public static void ReadSaveFile()
     {
         //Read text from fike

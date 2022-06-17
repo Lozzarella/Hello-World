@@ -36,7 +36,7 @@ public class SavePlayerData : MonoBehaviour
         writer.Close();//closes the current Streamwriter object and the underlying stream
 
         //Re-import the file to update the reference in the editor
-        AssetDatabase.ImportAsset(path);
+       // AssetDatabase.ImportAsset(path);
         //TextAsset asset = Resources.Load("Save/Keybinds.txt") as TextAsset;
     }
 

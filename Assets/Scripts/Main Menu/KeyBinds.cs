@@ -35,7 +35,7 @@ public class KeyBinds : MonoBehaviour
                 baseSetup[i].keyDisplayText.text = keys[baseSetup[i].keyName].ToString();
             }
             HandleTextFile.WriteSaveFile();
-            PlayerPrefs.SetString("FistLoad", "");
+            PlayerPrefs.SetString("FirstLoad", "");
         }
         else
         {

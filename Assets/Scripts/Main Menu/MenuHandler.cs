@@ -47,7 +47,8 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
     public AudioMixer masterAudio;
     public string currentSlider;
     public Slider tempSlider;
-    
+    public static int tempQuality, tempResolution;
+    public static bool tempFullscreen;
     public void GetSlider (Slider slider)
     {
         tempSlider = slider;
@@ -85,7 +86,8 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
 
     #endregion
     #region Save and Load User Settings
-    //sliders
+
+    //slider variables
     [SerializeField] Slider sliderMasterVol;
     [SerializeField] Slider sliderMusicVol;
     [SerializeField] Slider sliderSfxVol;
@@ -108,8 +110,12 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
         theSavedSetting = PlayerPrefs.GetFloat("sfxVolume", 80f);
         masterAudio.SetFloat("sfxVolume", theSavedSetting);
         sliderSfxVol.value = theSavedSetting;
+        OptionsHandler.ReadOptionSaveData();
+        FullScreenToggle(tempFullscreen);
+        SetResolution(tempResolution);
+        Quality(tempQuality);
 
-        
+
     }
 
     #endregion
@@ -119,6 +125,7 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
     public void Quality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        tempQuality = qualityIndex;
     }
 
     #endregion
@@ -126,14 +133,17 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
     #region Resolution
     public Resolution[] resolutions;
     public Dropdown resDropdown;
-
+    public Dropdown qualityDropdown;
+    public Toggle fullTog;
     public void FullScreenToggle(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        tempFullscreen = isFullscreen;
     }
 
     private void Start()
     {
+
         resolutions = Screen.resolutions;
         resDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -151,15 +161,26 @@ public class MenuHandler : MonoBehaviour//Class to manage main menu canvas syste
         resDropdown.AddOptions(options);
         resDropdown.value = currentResolutionIndex;
         resDropdown.RefreshShownValue();
-
+       
         LoadSettings();
+
+        qualityDropdown.value = tempQuality;
+        fullTog.isOn = tempFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)
     {
         Resolution res = resolutions[resolutionIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        tempResolution = resolutionIndex;
     }
 
     #endregion
+
+
+    //save function
+    public void GDIYAA()
+    {
+        OptionsHandler.WriteOptionSaveData();
+    }
 }
